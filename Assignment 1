@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+
+class bank
+{
+    string name;
+    string branch ;
+    int balance ;
+    long long int acc_no ;
+
+    public:
+    bank()
+    {
+        name = "Raj" ;
+        branch = "Pune" ;
+        balance = 1000;
+        acc_no = 1234567890 ;
+       
+    }
+    
+    bank( string name , string branch , int balance , long long int acc_no )
+    {
+        this -> name = name ;
+        this -> branch = branch ;
+        this -> balance = balance ;
+        this -> acc_no = acc_no ;
+        
+    }
+    
+    
+    
+    
+    void get_data() ;
+    void display_data() ;
+    void withdraw ();
+};
+
+void bank :: withdraw()
+{
+    cout << "Enter the amount to withdraw -> ";
+    int amt;
+    cin >> amt ;
+    
+    balance = balance - amt ;
+    
+    display_data ();
+    
+    
+}
+
+void bank :: get_data ()
+{
+    
+    cout << "Enter your data -> " << endl;
+    cin >> name >> branch >> balance >> acc_no ;
+  
+}
+
+void bank :: display_data ()
+{
+    cout << endl << "Your data is -> " << endl;
+    cout << name << endl << branch << endl << balance << endl << acc_no ;
+}
+int main() 
+{
+    int n ;
+    cout << "How many members data you want to add ? ";
+    cin >> n;
+    
+    bank b1[n];
+    
+    for (int i=0 ; i<n ; i++)
+    {
+        b1[i].get_data();
+    }
+
+   for (int i=0 ; i<n ; i++)
+    {
+        b1[i].display_data();
+    }
+    
+  
+    cout << "Enter the member no. to withdraw amount -> ";
+    int m;
+    cin >> m;
+    for(int i=0 ; i<n ; i++)
+    {
+        if( i == m-1 )
+        {
+            b1[i].withdraw();
+        }
+    }
+    
+    
+    return 0;
+}
