@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+//  Name, roll number, Class, division, Date of Birth, Blood group, Contact address, telephone number.
+
+class student
+{
+   string name;
+   int roll_no;
+   string sclass;
+   char div;
+   long long int dob ;
+   string blood_grp ;
+   long long int number ;
+   string address ;
+   
+   public:
+   void read_data ();
+   void display_data ();
+   
+};
+
+void student :: read_data ()
+{
+    cout << "Enter your data -> " << endl;
+    cin >> name >> roll_no >> sclass >> div >> dob >> blood_grp >> number >> address ;
+}
+
+void student :: display_data ()
+{
+    cout << "Your data is -> " << endl;
+    cout << name <<" " <<  roll_no << " " <<  sclass << " " << div << " " << dob << " " << blood_grp << " " << number << " " << address << endl;
+    
+}
+
+
+int main() {
+    
+    int n;
+    cout << "Enter the no. of student -> " << endl;
+    cin >> n;
+    
+    student s1[n];
+    
+    for (int i=0 ; i<n ; i++)
+    {
+        s1[i].read_data();
+    }
+    
+    for (int i=0 ; i<n ; i++)
+    {
+        s1[i].display_data();
+    }
+   
+
+    return 0;
+}
